@@ -1,0 +1,30 @@
+[DEMO SCRIPT - KINKEEPER DEMONSTRATION]
+[Length: ~3.5 minutes]
+[Perspective: First person, conversational, clear]
+
+0:00 - 0:20 [Hook]
+"Hi everyone! Have you ever missed a family birthday or an anniversary because the reminder was buried in a WhatsApp chat group? We all have. But uploading our private family chats to public cloud databases just to extract calendar events is a massive privacy risk. That's why I built KinKeeper."
+
+0:20 - 0:45 [What KinKeeper is]
+"KinKeeper is a privacy-safe family memory concierge. It runs entirely on your local machine, allowing you to upload your chat exports and automatically extract upcoming birthdays, anniversaries, and remembrance days. It redacts phone numbers, cleans prompt injections, and designs beautiful reminder schedules without storing a single word of your raw chat messages."
+
+0:45 - 1:00 [Show cover banner]
+"Let's look at the project banner. Here is KinKeeper. It's themed in soft pastels and cream backgrounds to reflect a calm, private family memory archive. You can see our main goals highlighted here: processing chat messages, extracting calendar events, ensuring privacy, and serving as a reminder concierge."
+
+1:00 - 1:30 [Show architecture]
+"If we look at the system architecture diagram, the data flow is very straightforward. The user uploads a chat log to our Local UI, which is processed by the ADK Orchestrator Workflow. The orchestrator calls a series of specialized agents: an Event Extractor, an Identity Resolver to merge duplicate dates and nicknames, and a Creative Concierge. All filesystem reads and database saves are handled locally by our Model Context Protocol, or MCP, server. No raw chat is ever stored, and no auto-sends or purchases can ever happen without your direct approval."
+
+1:30 - 2:15 [Show live UI]
+"Let's jump into the live dashboard. I'll open my browser to localhost port 8000. Here is our dashboard! It features a beautiful sage-green theme. Let's load the demo sample chat export file. I can do that by clicking 'Load Demo Sample'—which loads a synthetic WhatsApp-style log—and then clicking 'Analyze Memories'. Instantly, the system executes the multi-agent pipeline."
+
+2:15 - 2:45 [Show captured memories]
+"Look at that! We have our upcoming memories neatly organized in rounded cards. Uncle Robert's birthday, Olivia's birthday, Lisa and David's anniversary, and Grandpa James's remembrance day. The system Standardized Liv to 'Olivia' and merged two duplicate birthday wishes into one single card! At the bottom of each card, we can edit the date, delete the card, or view a custom greeting draft. Clicking 'Send E-Card' or 'Send Flowers' lets us interact with them, showing us that these are safe placeholders for future integration."
+
+2:45 - 3:10 [Show privacy audit]
+"Now, let's scroll down to the Privacy Audit section. This is my favorite part. The system displays a live audit summary. We can see exactly how many messages were parsed, how many media attachments were skipped, how many phone numbers were redacted, and if any unsafe content was blocked. This gives the user complete transparency and confidence that their private data is protected."
+
+3:10 - 3:30 [Show MCP, TDD planning, and tests]
+"Behind the scenes, we have a robust suite of Gherkin specifications and pytest unit tests. If I open my terminal and run 'make test', all 30 unit and BDD tests pass successfully in under 6 seconds! Running 'make eval' executes our offline evaluations, achieving 100% accuracy across our sample dataset."
+
+3:30 - End [Close with impact]
+"KinKeeper demonstrates how we can build powerful, multi-agent AI assistants that improve our daily lives while keeping our most personal communications completely safe, local, and private. Thank you!"

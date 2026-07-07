@@ -1,0 +1,107 @@
+[
+  {
+    "person": "Eve",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-07",
+    "confidence": "high",
+    "source_snippet": "[7/7/26, 7:55:40 PM] Daniel Green: Happy birthday Eve! Hope you had a wonderful day last week.",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Birthday Eve! \ud83c\udf82",
+    "status": "captured"
+  },
+  {
+    "person": "Lily",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-08",
+    "confidence": "high",
+    "source_snippet": "[7/8/26, 8:05:17 AM] Emma Miller: Happy birthday Lily \ud83c\udf82 We love you so much!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Birthday Lily! \ud83c\udf82",
+    "status": "captured"
+  },
+  {
+    "person": "Grandma Rose",
+    "event_type": "remembrance day",
+    "inferred_date": "2026-07-10",
+    "confidence": "high",
+    "source_snippet": "[7/10/26, 10:11:08 AM] Amanda Scott: Remembering Grandma Rose today. We miss her kindness and stories.",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Thinking of Grandma Rose today. We miss them. \u2764\ufe0f",
+    "status": "captured"
+  },
+  {
+    "person": "Lisa and David",
+    "event_type": "anniversary",
+    "inferred_date": "2026-07-11",
+    "confidence": "high",
+    "source_snippet": "[7/11/26, 2:22:35 PM] Brian Thompson: Happy anniversary Lisa and David in two days! 20 years is amazing.",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Anniversary Lisa and David! \ud83c\udf38",
+    "status": "captured"
+  },
+  {
+    "person": "Lisa & David",
+    "event_type": "anniversary",
+    "inferred_date": "2026-07-13",
+    "confidence": "high",
+    "source_snippet": "[7/13/26, 8:14:55 AM] Noah Carter: Happy anniversary Lisa & David \ud83d\udc90",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Anniversary Lisa & David! \ud83c\udf38",
+    "status": "captured"
+  },
+  {
+    "person": "Unknown person",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-06",
+    "confidence": "low",
+    "source_snippet": "[7/6/26, 8:00:10 AM] Sarah Collins: Reminder that Lily's birthday is coming up on July 8!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Birthday! \ud83c\udf82",
+    "status": "needs_review"
+  },
+  {
+    "person": "Unknown couple",
+    "event_type": "anniversary",
+    "inferred_date": "2026-07-12",
+    "confidence": "low",
+    "source_snippet": "[7/12/26, 9:30:12 AM] Emily Carter: Don't forget Lisa and David's anniversary tomorrow.",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "suggested_message": "Happy Anniversary! \ud83c\udf38",
+    "status": "needs_review"
+  }
+]

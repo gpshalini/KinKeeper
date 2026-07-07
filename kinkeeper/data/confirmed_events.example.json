@@ -1,0 +1,72 @@
+[
+  {
+    "person": "Olivia",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-03",
+    "confidence": "high",
+    "source_snippet": "[7/3/26, 9:00:00 AM] Alice: Happy birthday Olivia 🎂\n[7/3/26, 9:05:00 AM] Bob: Happy birthday Olivia! Hope you have a wonderful day!\n[7/3/26, 10:12:00 AM] [PHONE_REDACTED]: Happy birthday Olivia, sending you lots of love!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "status": "captured"
+  },
+  {
+    "person": "Marcus",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-04",
+    "confidence": "high",
+    "source_snippet": "[7/4/26, 8:30:00 AM] Charlie: Happy birthday Marcus!\n[7/5/26, 11:15:00 AM] Dave: Happy birthday Marcus! Sorry I missed it yesterday!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Draft message",
+    "status": "captured"
+  },
+  {
+    "person": "Lisa and David",
+    "event_type": "anniversary",
+    "inferred_date": "2026-07-06",
+    "confidence": "high",
+    "source_snippet": "[7/6/26, 2:10:00 PM] Emily: Happy anniversary Lisa and David! Have a beautiful celebration!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Find flowers",
+    "status": "captured"
+  },
+  {
+    "person": "Grandpa James",
+    "event_type": "remembrance day",
+    "inferred_date": "2026-07-07",
+    "confidence": "high",
+    "source_snippet": "[7/7/26, 4:05:00 PM] Frank: Remembering Grandpa James today. We miss him.",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Reminder to call",
+    "status": "captured"
+  },
+  {
+    "person": "Unknown person",
+    "event_type": "birthday",
+    "inferred_date": "2026-07-08",
+    "confidence": "low",
+    "source_snippet": "[7/8/26, 1:00:00 PM] Grace: Happy birthday!",
+    "reminder_timing": [
+      "7 days before",
+      "1 day before",
+      "day of event"
+    ],
+    "suggested_action": "Reminder to call",
+    "status": "needs_review"
+  }
+]

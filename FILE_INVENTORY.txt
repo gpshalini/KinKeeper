@@ -1,0 +1,27 @@
+KinKeeper_md_playbook_v3_tdd/
+  00_START_HERE.md
+  01_PROJECT_BRIEF.md
+  02_CAPSTONE_RUBRIC_MAPPING.md
+  03_BUILD_ORCHESTRATOR.md
+  04_TECH_SETUP.md
+  05_PRODUCT_REQUIREMENTS.md
+  06_ADK_ARCHITECTURE.md
+  07_MCP_TOOLS.md
+  08_SECURITY_PRIVACY_OBSERVABILITY.md
+  09_UI_REQUIREMENTS.md
+  10_TESTS_EVALS_SPECS.md
+  11_VISUAL_ASSETS.md
+  12_DOCS_SUBMISSION_DEMO.md
+  .agents/
+    CONTEXT.md
+    skills/
+      kinkeeper-event-extraction/
+        SKILL.md
+      privacy-safe-memory/
+        SKILL.md
+      stride-threat-model/
+        SKILL.md
+      ui-builder/
+        SKILL.md
+  specs/
+    kinkeeper.feature
