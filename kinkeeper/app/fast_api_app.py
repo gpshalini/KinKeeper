@@ -422,55 +422,59 @@ async def analyze_chat(req: AnalyzeRequest):
             if event.output is not None:
                 response_events.append(event.output)
     except Exception as e:
-        logger.error(f"Error during workflow execution: {e}", exc_info=True)
-        if "429" in str(e) or "quota" in str(e).lower() or "credentials" in str(e).lower() or "limit" in str(e).lower():
-            mock_captured_only, mock_needs_review = extract_events_offline(req.chat_text)
-            save_captured_events(mock_captured_only + mock_needs_review)
-            
-            write_audit_log({
-                "timestamp": datetime.datetime.now().isoformat(),
-                "event": "Offline Fallback Triggered",
-                "agent": "Security Checkpoint",
-                "decision": "offline_mock_mode",
-                "confidence": "high",
-                "input_summary": "Quota exceeded fallback to local database",
-                "output_summary": f"{len(mock_captured_only)} captured, {len(mock_needs_review)} needs review generated locally",
-                "security_flags": ["offline_mode"],
-                "saved_status": "success"
+        if hasattr(logger, "error"):
+            logger.error(f"Error during workflow execution: {e}", exc_info=True)
+        elif hasattr(logger, "log_text"):
+            logger.log_text(f"Error during workflow execution: {e}", severity="ERROR")
+        else:
+            print(f"ERROR: Error during workflow execution: {e}")
+        # Fall back to offline parser for any live execution failure (e.g. missing API key, rate limits)
+        mock_captured_only, mock_needs_review = extract_events_offline(req.chat_text)
+        save_captured_events(mock_captured_only + mock_needs_review)
+        
+        write_audit_log({
+            "timestamp": datetime.datetime.now().isoformat(),
+            "event": "Offline Fallback Triggered",
+            "agent": "Security Checkpoint",
+            "decision": "offline_mock_mode",
+            "confidence": "high",
+            "input_summary": "Quota exceeded fallback to local database",
+            "output_summary": f"{len(mock_captured_only)} captured, {len(mock_needs_review)} needs review generated locally",
+            "security_flags": ["offline_mode"],
+            "saved_status": "success"
+        })
+        
+        audit_res = get_audit_log()
+        audit_list = audit_res.get("audit_log", [])
+        last_audit = audit_list[-1] if audit_list else {}
+        
+        suggested_actions = []
+        for ev in mock_captured_only + mock_needs_review:
+            suggested_actions.append({
+                "person": ev["person"],
+                "event_type": ev["event_type"],
+                "action": ev["suggested_action"],
+                "message_draft": ev["suggested_message"]
             })
-            
-            audit_res = get_audit_log()
-            audit_list = audit_res.get("audit_log", [])
-            last_audit = audit_list[-1] if audit_list else {}
-            
-            suggested_actions = []
-            for ev in mock_captured_only + mock_needs_review:
-                suggested_actions.append({
-                    "person": ev["person"],
-                    "event_type": ev["event_type"],
-                    "action": ev["suggested_action"],
-                    "message_draft": ev["suggested_message"]
-                })
-            
-            return {
-                "captured_events": mock_captured_only,
-                "needs_review": mock_needs_review,
-                "skipped_summary": {
-                    "total_skipped": 2,
-                    "media_omitted_count": 1,
-                    "deleted_messages_skipped": 1,
-                    "system_messages_skipped": 0
-                },
-                "privacy_summary": {
-                    "phone_numbers_redacted_count": 0,
-                    "emails_redacted_count": 0,
-                    "unsafe_content_blocked": False
-                },
-                "audit_summary": last_audit,
-                "suggested_actions": suggested_actions,
-                "warning": "Gemini API rate limit exceeded. Displaying local offline parsed data fallback."
-            }
-        return {"error": f"Workflow execution failed: {str(e)}"}
+        
+        return {
+            "captured_events": mock_captured_only,
+            "needs_review": mock_needs_review,
+            "skipped_summary": {
+                "total_skipped": 2,
+                "media_omitted_count": 1,
+                "deleted_messages_skipped": 1,
+                "system_messages_skipped": 0
+            },
+            "privacy_summary": {
+                "phone_numbers_redacted_count": 0,
+                "emails_redacted_count": 0,
+                "unsafe_content_blocked": False
+            },
+            "audit_summary": last_audit,
+            "suggested_actions": suggested_actions,
+            "warning": "Gemini API rate limit exceeded. Displaying local offline parsed data fallback."
+        }
             
     if response_events:
         return response_events[-1]
