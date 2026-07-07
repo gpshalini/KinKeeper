@@ -2,6 +2,9 @@
 
 ![KinKeeper Cover Banner](assets/cover_banner.png)
 
+### 🚀 Live Demo URL
+Access the live Cloud Run application here: **[https://kinkeeper-195757621529.us-central1.run.app/ui](https://kinkeeper-195757621529.us-central1.run.app/ui)**
+
 ## One-Line Description
 KinKeeper is a privacy-first, local-first family memory concierge that turns WhatsApp-style chat exports into structured milestone events and reminders without saving raw chat data.
 
